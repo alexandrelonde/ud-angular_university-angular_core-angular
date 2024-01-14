@@ -1,4 +1,5 @@
-
+// Dados mockados para usar como teste para uma base de dados.
+// COURSES é uma array de objetos
 
 export const COURSES: any = [
 
@@ -82,7 +83,7 @@ export const COURSES: any = [
 
 ];
 
-
+// Função para procurar um curso pelo id
 export function findCourseById(courseId:number) {
     return COURSES.find(course => course.id === courseId);
 }
