@@ -16,4 +16,9 @@ export class AppComponent {
     console.log("App component - click event bubbled...", course);
   }
 
+  // Caso tenhamos que criar um index personalizado para o parâmetro track para o @for
+  trackCourse(index: number, course:Course) {
+    return course.id;
+  }
+
 }
