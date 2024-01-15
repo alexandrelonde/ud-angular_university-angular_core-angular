@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 // Para usar meus dados mockados, estou importando-os no arquivo .ts
 import {COURSES} from '../db-data';
+import { Course } from './model/course';
 
 @Component({
   selector: 'app-root',
@@ -15,5 +16,9 @@ export class AppComponent {
   rxjsCourse = COURSES[1];
 
   ngrxCourse = COURSES[2];
+
+  onCourseSelected(course:Course) {
+    console.log("App component - click event bubbled...", course);
+  }
 
 }
