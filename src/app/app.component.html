@@ -8,13 +8,25 @@
 
 <div class="courses">
 
-  @for (course of courses; track course.id) {
-    <course-card [course]="course" (courseSelected)="onCourseSelected($event)" />
+  @for (course of courses; track course.id; let index = $index; let count = $count;
+    let first = $first; let last = $last; let even = $even; let odd = $odd) {
+    <course-card
+    [course]="course"
+    [index]="index"
+    [class.is-first] = "first"
+    [class.is-last] = "last"
+    [class.is-even] = "even"
+    [class.is-odd] = "odd"
+    (courseSelected)="onCourseSelected($event)" />
+  }
+  @empty {
+    <h1>No Courses Found!</h1>
   }
 
 </div>
 
 <!-- Para o component filho temos uma noma forma de fechar a tag no Angular 17 -->
+<!-- Caso nosso array esteja vazio podemos mostra o código abaixo utilizando @empty -->
 
 
 
