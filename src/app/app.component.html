@@ -7,14 +7,14 @@
 
 
 <div class="courses">
-    <!-- course-card é componente filho de app.component -->
-    <course-card (courseSelected)="onCourseSelected($event)" [course]="coreCourse"></course-card>
 
-    <course-card (courseSelected)="onCourseSelected($event)" [course]="rxjsCourse"></course-card>
-
-    <course-card (courseSelected)="onCourseSelected($event)" [course]="ngrxCourse"></course-card>
+  @for (course of courses; track course.id) {
+    <course-card [course]="course" (courseSelected)="onCourseSelected($event)" />
+  }
 
 </div>
+
+<!-- Para o component filho temos uma noma forma de fechar a tag no Angular 17 -->
 
 
 

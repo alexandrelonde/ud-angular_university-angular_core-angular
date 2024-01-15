@@ -9,13 +9,8 @@ import { Course } from './model/course';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-
-  // Definimos três propriedades dentro da classe AppComponent
-  coreCourse  = COURSES[0]; // Posição do vetor não é a mesma do id - CUIDADO
-
-  rxjsCourse = COURSES[1];
-
-  ngrxCourse = COURSES[2];
+  
+  courses = COURSES;
 
   onCourseSelected(course:Course) {
     console.log("App component - click event bubbled...", course);
