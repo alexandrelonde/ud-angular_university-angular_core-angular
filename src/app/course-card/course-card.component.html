@@ -1,5 +1,5 @@
 
-<div class="course-card">
+<div class="course-card" [ngClass]="cardClasses()">
 
     <div class="course-title">
       {{course.id}} {{ course.description }}
@@ -20,6 +20,9 @@
     <div class="course-description">
         {{ course.longDescription }}
     </div>
+    <div>
+      {{ course.category }}
+    </div>
     <button (click)="onCourseViewed()">View Course</button>
 
 </div>
@@ -27,3 +30,4 @@
 
 <!-- @if(course.iconUrl) -->
 <!-- Se o curso tiver uma imagem, ele irá renderiza-la, senão... -->
+<!-- Para aplicar um estilo de maneira condicional utilizamos ngClass-->
