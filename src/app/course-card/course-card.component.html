@@ -1,5 +1,5 @@
 
-<div class="course-card" [ngClass]="cardClasses()">
+<div class="course-card" [ngClass]="cardClasses()" [ngStyle]="cardStyles()">
 
     <div class="course-title">
       {{course.id}} {{ course.description }}
@@ -30,4 +30,5 @@
 
 <!-- @if(course.iconUrl) -->
 <!-- Se o curso tiver uma imagem, ele irá renderiza-la, senão... -->
-<!-- Para aplicar um estilo de maneira condicional utilizamos ngClass-->
+<!-- Para aplicar um estilo de maneira condicional por meio de classes, utilizamos ngClass-->
+<!-- Para aplicar um estilo de maneira condicional mais diretamente, utilizamos ngStyle-->
