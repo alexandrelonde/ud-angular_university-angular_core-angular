@@ -2,10 +2,20 @@
 <div class="course-card">
 
     <div class="course-title">
-      {{index}} {{ course.description }}
+      {{course.id}} {{ course.description }}
     </div>
 
-    <img width="300" alt="Angular Logo" [src]="course.iconUrl">
+    @if(course.id == 1) {
+      <h2>Course with ID 1 detected!</h2>
+    }
+    @else if(course.iconUrl) {
+      <img width="300" alt="Angular Logo" [src]="course.iconUrl">
+    }
+    @else {
+      <h2>No image available!</h2>
+    }
+
+
 
     <div class="course-description">
         {{ course.longDescription }}
@@ -13,3 +23,7 @@
     <button (click)="onCourseViewed()">View Course</button>
 
 </div>
+
+
+<!-- @if(course.iconUrl) -->
+<!-- Se o curso tiver uma imagem, ele irá renderiza-la, senão... -->
