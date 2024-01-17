@@ -5,6 +5,21 @@
 
 </div>
 
+<div class="demo">
+  <div>Data inicial: {{startDate | date}}</div>
+
+  <!-- Além de adicionarmos o pipe, o mesmo aceita arugmentos-->
+  <div>Data inicial: {{startDate | date: 'dd/MM/yyyy'}}</div>
+
+  <div>{{title | lowercase }}</div>
+
+  <div>{{ price | number }}</div>
+  <div>{{ price | currency }}</div> <!-- currency: moeda -->
+  <div>{{ price | currency: 'BRL' }}</div> <!-- currency: moeda -->
+  <div>Porcentagem: {{ rate | percent}}</div>
+
+</div>
+
 
 <div class="courses">
 
