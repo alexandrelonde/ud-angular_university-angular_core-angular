@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
 // Para usar meus dados mockados, estou importando-os no arquivo .ts
 import {COURSES} from '../db-data';
 import { Course } from './model/course';
@@ -9,16 +9,25 @@ import { CourseCardComponent } from './course-card/course-card.component';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements AfterViewInit{
 
   courses = COURSES;
 
-  @ViewChild(CourseCardComponent) card: CourseCardComponent;
+  @ViewChild('cardRef1', {read: ElementRef}) card1: ElementRef;
 
+  @ViewChild('container') containerDiv: ElementRef;
+
+  constructor() {
+    
+  }
+
+  ngAfterViewInit() {
+    console.log("containerDiv", this.card1);
+  }
 
   onCourseSelected(course:Course) {
-    console.log(this.card);
-    //console.log("App component - click event bubbled...", course);
+    console.log("containerDiv", this.card1);
+
   }
 
 }
