@@ -1,8 +1,8 @@
 
-<div class="course-card" [ngClass]="cardClasses()" [ngStyle]="cardStyles()">
+<div class="course-card" [ngClass]="cardClasses()">
 
     <div class="course-title">
-      {{course.id}} {{ course.description }}
+      {{ course.id }} {{ course.description }}
     </div>
 
     @if(course.iconUrl) {
@@ -12,6 +12,7 @@
     <div class="course-description">
         {{ course.longDescription }}
     </div>
+
     <div class="course-category">
       @switch(course.category) {
         @case ("BEGINNER") {
@@ -29,12 +30,9 @@
         @default {
           <div class="category">Unknown</div>
         }
-
-
-
       }
-
     </div>
+
     <button (click)="onCourseViewed()">View Course</button>
 
 </div>

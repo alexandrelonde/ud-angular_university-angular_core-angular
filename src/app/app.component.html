@@ -1,47 +1,21 @@
 <div class="top-menu">
-
-    <img class="logo"
-        src="https://angular-academy.s3.amazonaws.com/main-logo/main-page-logo-small-hat.png">
-
+    <img class="logo" src="https://angular-academy.s3.amazonaws.com/main-logo/main-page-logo-small-hat.png">
 </div>
-
-<div class="demo">
-  <div>Data inicial: {{startDate | date}}</div>
-
-  <!-- Além de adicionarmos o pipe, o mesmo aceita arugmentos-->
-  <div>Data inicial: {{startDate | date: 'dd/MM/yyyy'}}</div>
-
-  <div>{{title | lowercase }}</div>
-
-  <div>{{ price | number }}</div>
-  <div>{{ price | currency }}</div> <!-- currency: moeda -->
-  <div>{{ price | currency: 'BRL' }}</div> <!-- currency: moeda -->
-  <div>Porcentagem: {{ rate | percent}}</div>
-
-</div>
-
 
 <div class="courses">
 
-  @for (course of courses; track course.id; let index = $index; let count = $count;
-    let first = $first; let last = $last; let even = $even; let odd = $odd) {
-    <course-card
-    [course]="course"
-    [index]="index"
-    [class.is-first] = "first"
-    [class.is-last] = "last"
-    [class.is-even] = "even"
-    [class.is-odd] = "odd"
-    (courseSelected)="onCourseSelected($event)" />
-  }
-  @empty {
-    <h1>No Courses Found!</h1>
-  }
+  <course-card
+    (courseSelected)="onCourseSelected($event)"
+    [course]="courses[0]">
+  </course-card>
+
+  <course-card
+  (courseSelected)="onCourseSelected($event)"
+  [course]="courses[1]">
+</course-card>
 
 </div>
 
-<!-- Para o component filho temos uma noma forma de fechar a tag no Angular 17 -->
-<!-- Caso nosso array esteja vazio podemos mostra o código abaixo utilizando @empty -->
 
 
 
