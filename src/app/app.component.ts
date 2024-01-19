@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, QueryList, ViewChild, ViewChildren } from '@angular/core';
 // Para usar meus dados mockados, estou importando-os no arquivo .ts
 import {COURSES} from '../db-data';
 import { Course } from './model/course';
@@ -13,20 +13,20 @@ export class AppComponent implements AfterViewInit{
 
   courses = COURSES;
 
-  @ViewChild('cardRef1', {read: ElementRef}) card1: ElementRef;
-
-  @ViewChild('container') containerDiv: ElementRef;
+  @ViewChildren(CourseCardComponent, {read: ElementRef}) cards: QueryList<ElementRef>;
+  // ao usarmos QueryList temos uma série de propriedades da lista
 
   constructor() {
-    
+
   }
 
   ngAfterViewInit() {
-    console.log("containerDiv", this.card1);
+    console.log(this.cards);
+
   }
 
   onCourseSelected(course:Course) {
-    console.log("containerDiv", this.card1);
+
 
   }
 
